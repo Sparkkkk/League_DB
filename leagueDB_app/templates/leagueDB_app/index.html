@@ -4,37 +4,38 @@
 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
 <header class="header">
-    <div class="header-text">Sign in via:</div>
-    <a href="#" class="header-link">Option1</a>
-    <a href="#" class="header-link">Option2</a>
+    <div class="header-text">LeagueDB</div>
 </header>
+
+<!-- {% if latest_question_list %}
+<ul>
+    {% for question in latest_question_list %}
+    <li><a href="/leagueDB_app/ col.id }}/">{{ question.col }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No polls are available.</p>
+{% endif %} -->
 
 <section class="landing-section landing-main">
     <div class="landing-section-content">
-        <h1 class="brand">LeagueDB</h1>
+        <h1 class="brand">Champion Analysis</h1>
         <h2>
-            <span class="brand-text">League</span>
+            <span class="brand-text">
+                {% if error_message %}
+                {{error_message}}
+                {% endif %}</span>
+            <form action="{% url 'leaguedb_app:page1'%}" method="post">
+                {% csrf_token %}
+                <input type="form" id="testName" name="name" />
+                <input type="submit">
+            </form>
             <span class="brand-text">Database</span>
         </h2>
 
     </div>
 </section>
-<section class="landing-section langing-features">
-    <section class="landing-feature feature-music-services">
-        <h2>Connect your favourite <span class="brand-text">mu</span>sic services</h2>
-        <ul>
-            <li>Spotify</li>
-            <li>Deezer</li>
-        </ul>
-    </section>
-    <section class="landing-feature feature-notifications">
-        <h2>Get <span class="brand-text">n</span>otifications wherever you want them</h2>
-        <ul>
-            <li>Email</li>
-            <li>Telegram</li>
-        </ul>
-    </section>
-</section>
+
 
 <style>
     .header {
@@ -47,23 +48,14 @@
         background: rgba(0, 0, 0, 0.5);
     }
     
-    .header-link {
-        margin: 1rem;
-        border-bottom: 3px solid #c55e00;
-        font-size: 1.2rem;
-        color: #222;
-        text-decoration: none;
-        color: #ccc;
-    }
-    
     .header-text {
         margin: 1rem;
-        font-size: 1.2rem;
+        font-size: 70px;
         color: #ccc;
     }
     
     .landing-section {
-        min-height: 100vh;
+        min-height: 60vh;
         width: 100vw;
         display: flex;
         align-items: center;
