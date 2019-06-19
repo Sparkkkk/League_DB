@@ -1,0 +1,93 @@
+{% load static %}
+<title>LeagueDB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+<header class="header">
+    <div class="header-text">Sign in via:</div>
+    <a href="#" class="header-link">Option1</a>
+    <a href="#" class="header-link">Option2</a>
+</header>
+
+<section class="landing-section landing-main">
+    <div class="landing-section-content">
+        <h1 class="brand">LeagueDB</h1>
+        <h2>
+            <span class="brand-text">League</span>
+            <span class="brand-text">Database</span>
+        </h2>
+
+    </div>
+</section>
+<section class="landing-section langing-features">
+    <section class="landing-feature feature-music-services">
+        <h2>Connect your favourite <span class="brand-text">mu</span>sic services</h2>
+        <ul>
+            <li>Spotify</li>
+            <li>Deezer</li>
+        </ul>
+    </section>
+    <section class="landing-feature feature-notifications">
+        <h2>Get <span class="brand-text">n</span>otifications wherever you want them</h2>
+        <ul>
+            <li>Email</li>
+            <li>Telegram</li>
+        </ul>
+    </section>
+</section>
+
+<style>
+    .header {
+        width: 100vw;
+        display: flex;
+        justify-content: flex-end;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .header-link {
+        margin: 1rem;
+        border-bottom: 3px solid #c55e00;
+        font-size: 1.2rem;
+        color: #222;
+        text-decoration: none;
+        color: #ccc;
+    }
+    
+    .header-text {
+        margin: 1rem;
+        font-size: 1.2rem;
+        color: #ccc;
+    }
+    
+    .landing-section {
+        min-height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .landing-section-content {
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.5);
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #ccc;
+    }
+    
+    .brand {
+        margin: 0;
+        color: #0035c5;
+    }
+    
+    .brand-text {
+        color: #0035c5;
+    }
+</style>

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'leagueDB_app',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'league_DB.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ghwjlzvb',
+        'USER': 'ghwjlzvb',
+        'PASSWORD': 'zyLL4t30ygjtCs6m5BeVqtOYYX2E4u2L',
+        'HOST': 'raja.db.elephantsql.com',
+        'PORT': '5432'
     }
 }
 

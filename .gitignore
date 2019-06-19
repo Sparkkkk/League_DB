@@ -1,2 +1,5 @@
-db.sqlite3
+./db.sqlite3
+leagueDB_app/migrations/*
+leagueDB_app/__pycache__
+
 
