@@ -7,15 +7,7 @@
     <div class="header-text">LeagueDB</div>
 </header>
 
-<!-- {% if latest_question_list %}
-<ul>
-    {% for question in latest_question_list %}
-    <li><a href="/leagueDB_app/ col.id }}/">{{ question.col }}</a></li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No polls are available.</p>
-{% endif %} -->
+
 
 <section class="landing-section landing-main">
     <div class="landing-section-content">
@@ -38,8 +30,18 @@
 <section class="query-section">
     <div>
         <form action='randomQuery' method='GET'>
-            <button type='submit' id="btn-1" align="center">Random Query</button>
+            <button type='submit'>Random Query</button>
         </form>
+        {% if randomQueryList %}
+        <ul>
+            {% for query in randomQueryList %}
+            <li>{{ query.gameType }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No polls are available.</p>
+        {% endif %}
+
     </div>
 
 </section>
@@ -105,15 +107,5 @@
     
     .brand-text {
         color: #0035c5;
-    }
-    
-    .query-section {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    #btn-1 {
-        width: 125px;
-        text-align: center;
     }
 </style>

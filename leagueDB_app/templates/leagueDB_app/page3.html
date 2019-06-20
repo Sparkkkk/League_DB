@@ -1,0 +1,108 @@
+{% load static %}
+<title>LeagueDB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+<header class="header">
+    <div class="header-text">LeagueDB</div>
+</header>
+
+<body>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 20pt;">Champion list</span></p>
+<p><span style="font-size: 15pt;">Champions:</span></p>
+{#Add for loop for top 5 champions#}
+<tbody>
+    {% for c in champ_name %}
+        <tr>
+            <td>{{ c.name }}</td>
+        </tr>
+    {% endfor %}
+
+</tbody>
+<p><span style="font-size: 15pt;">Win rate:</span></p>
+{#Add for loop for matches#}
+</body>
+
+
+
+
+
+<!-- {% if latest_question_list %}
+<ul>
+    {% for question in latest_question_list %}
+    <li><a href="/leagueDB_app/ col.id }}/">{{ question.col }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No polls are available.</p>
+{% endif %} -->
+
+{#<section class="landing-section landing-main">#}
+{#    <div class="landing-section-content">#}
+{#        <h1 class="brand">Champion Analysis</h1>#}
+{#        <h2>#}
+{#            <span class="brand-text">#}
+{#                {% if error_message %}#}
+{#                {{error_message}}#}
+{#                {% endif %}</span>#}
+{#            <form action="{% url 'leaguedb_app:page2'%}" method="post">#}
+{#                {% csrf_token %}#}
+{#                <input type="form" id="testName" name="name" />#}
+{#                <input type="submit">#}
+{#            </form>#}
+{#            <span class="brand-text">Database</span>#}
+{#        </h2>#}
+{##}
+{#    </div>#}
+{#</section>#}
+
+
+<style>
+    .header {
+        width: 100vw;
+        display: flex;
+        justify-content: flex-end;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .header-text {
+        margin: 1rem;
+        font-size: 70px;
+        color: #ccc;
+    }
+
+    .landing-section {
+        min-height: 60vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .landing-section-content {
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.5);
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #ccc;
+    }
+
+    .brand {
+        margin: 0;
+        color: #0035c5;
+    }
+
+    .brand-text {
+        color: #0035c5;
+    }
+</style>
