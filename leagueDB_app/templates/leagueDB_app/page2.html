@@ -14,8 +14,21 @@
 <p><span style="font-size: 20pt;">Username: TestName</span></p>
 <p><span style="font-size: 15pt;">Top 5 Champions:</span></p>
 {#Add for loop for top 5 champions#}
+<tbody>
+    {% for c in top5 %}
+        <tr>
+            <td>{{ c.name }}</td>
+        </tr>
+    {% endfor %}
+
+</tbody>
 <p><span style="font-size: 15pt;">Matches:</span></p>
 {#Add for loop for matches#}
+    {% for url in top5 %}
+        <tr>
+            <td>{{ url.name }}</td>
+        </tr>
+    {% endfor %}
 </body>
 
 

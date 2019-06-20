@@ -14,6 +14,14 @@
 <p><span style="font-size: 20pt;">Champion list</span></p>
 <p><span style="font-size: 15pt;">Champions:</span></p>
 {#Add for loop for top 5 champions#}
+<tbody>
+    {% for c in champ_name %}
+        <tr>
+            <td>{{ c.name }}</td>
+        </tr>
+    {% endfor %}
+
+</tbody>
 <p><span style="font-size: 15pt;">Win rate:</span></p>
 {#Add for loop for matches#}
 </body>

@@ -17,12 +17,15 @@ def hello(request):
     return HttpResponse(template.render(context, request))
     # return render(request, 'leagueDB_app/index.html')
 
+
 # Those None need to be replaced by SQL
 def page2(request):
     # for page 2 username is the parameter passed from URL
     username = request.content_params.get('username')
-    top5_champions = None
-    matches = None
+    top5_champions = LeagueDBModel.objects.raw('SELECT cid AS id, name FROM "leagueDB_app_champion"')
+
+    matches = LeagueDBModel.objects.raw('SELECT name from "leagueDB_app_champion"')
+
     context = {
         'top5': top5_champions,
         'matches': matches
@@ -33,7 +36,7 @@ def page2(request):
 
 def page3(request):
 
-    champions_name = None
+    champions_name = LeagueDBModel.objects.raw('SELECT cid AS id, name FROM "leagueDB_app_champion"')
     winrate_with_champion_name = None
     context = {
         'champ_name': champions_name,
