@@ -13,9 +13,16 @@ def hello(request):
         'latest_question_list': leagueList,
     }
     return HttpResponse(template.render(context, request))
-    # return render(request, 'leagueDB_app/index.html')
 
 def page2(request): 
     template = loader.get_template('leagueDB_app/index.html')
     return HttpResponse(template.render(request))
-# Create your views here.
+
+def randomQuery(request):
+    randomQuery = LeagueDBModel.objects.raw('SELECT gid AS id, "gameType" from "leagueDB_app_game"')
+    template = loader.get_template('randomQuery/index.html')
+    context = {
+        'randomQueryList' : randomQuery,
+    }
+    return HttpResponse(template.render(context,request))
+
