@@ -15,7 +15,7 @@ def hello(request):
         'latest_question_list': leagueList,
     }
     return HttpResponse(template.render(context, request))
-    # return render(request, 'leagueDB_app/index.html')
+
 
 
 # Those None need to be replaced by SQL
@@ -60,3 +60,4 @@ def page4(request):
     return HttpResponse(template.render(context, request))
 
 # Create your views here.
+
