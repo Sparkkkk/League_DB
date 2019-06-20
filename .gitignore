@@ -2,5 +2,5 @@
 leagueDB_app/migrations/*
 leagueDB_app/__pycache__
 *.pyc
-idea/
+.idea/
 
