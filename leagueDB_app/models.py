@@ -22,7 +22,9 @@ class Game(models.Model):
 class containsRecordPerMatch(models.Model):
     sid = models.IntegerField(primary_key=True)
     gid = models.IntegerField(unique=True)
+    uid = models.IntegerField(unique=True)
     gid = models.ForeignKey(Game, on_delete=models.CASCADE)
+    uid = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Champion(models.Model):
@@ -49,10 +51,8 @@ class Master(models.Model):
     cid = models.IntegerField(primary_key=True)
     uid = models.IntegerField(unique=True)
     point = models.IntegerField()
-    topPlayer = models.IntegerField()
     cid = models.ForeignKey(Champion, on_delete=models.CASCADE)
-    uid = models.ForeignKey(User, related_name = 'user_id',on_delete=models.CASCADE)
-    topPlayer = models.ForeignKey(User, related_name = 'top_player_id',on_delete=models.CASCADE)
+    uid = models.ForeignKey(User, related_name='user_id', on_delete=models.CASCADE)
 
 
 class Item(models.Model):
@@ -81,23 +81,31 @@ class buyEvent(models.Model):
     iid = models.ForeignKey(Item, on_delete=models.CASCADE)
 
 
+class didBuyEvent(models.Model):
+    eid = models.IntegerField(primary_key=True)
+    sid = models.IntegerField(unique=True)
+    time = models.TimeField(auto_now=True)
+    sid = models.ForeignKey(asRecordPerMatch, on_delete=models.CASCADE)
+
+
 class getObjectEvent(models.Model):
     eid = models.IntegerField(primary_key=True)
     oid = models.IntegerField(unique=True)
     time = models.TimeField(auto_now=True)
-    eid = models.ForeignKey(Object, on_delete=models.CASCADE)
+    oid = models.ForeignKey(Object, on_delete=models.CASCADE)
 
 
 class didObjectEvent(models.Model):
     eid = models.IntegerField(primary_key=True)
-    oid = models.IntegerField(unique=True)
+    sid = models.IntegerField(unique=True)
     time = models.TimeField(auto_now=True)
-    oid = models.ForeignKey(asRecordPerMatch, on_delete=models.CASCADE)
+    sid = models.ForeignKey(asRecordPerMatch, on_delete=models.CASCADE)
 
 
 class didKillEvent(models.Model):
     eid = models.IntegerField(primary_key=True)
+    time = models.TimeField(auto_now=True)
     killerSid = models.IntegerField()
     victimSid = models.IntegerField(unique=True)
-    time = models.TimeField(auto_now=True)
     victimSid = models.ForeignKey(asRecordPerMatch, on_delete=models.CASCADE)
+
